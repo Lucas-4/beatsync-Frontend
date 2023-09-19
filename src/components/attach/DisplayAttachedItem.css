@@ -1,0 +1,19 @@
+.attached-item {
+  display: flex;
+  background-color: rgb(46, 46, 46);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.attached-item img {
+  width: 100px;
+}
+
+.attached-item p {
+  margin: 0;
+  padding: 0;
+}
+
+.attached-item .icon {
+  cursor: pointer;
+}

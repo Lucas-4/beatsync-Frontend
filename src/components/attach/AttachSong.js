@@ -1,0 +1,84 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMusic, faPaperclip } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import "./AttachSong.css";
+import { List, ListItem } from "./List";
+import SearchBar from "../SearchBar";
+
+function AttachSongButton(props) {
+  return (
+    <div
+      title="attach song"
+      className={"attach-button " + (props.songVisible ? "active" : "")}
+      onClick={props.onClick}
+    >
+      <FontAwesomeIcon icon={faMusic} />
+    </div>
+  );
+}
+
+function AttachSong(props) {
+  const [songs, setSongs] = useState(null);
+  const [query, setQuery] = useState("");
+  async function getSongs() {
+    try {
+      const res = await fetch(
+        process.env.REACT_APP_API_HOST + "/search_song/" + query,
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
+      console.log(res);
+      const data = await res.json();
+      console.log(data.songs);
+      setSongs(data.songs);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  return (
+    <div>
+      <SearchBar
+        autoFocus={true}
+        placeholder="Search for a song..."
+        onClick={getSongs}
+        onEnter={getSongs}
+        setQuery={setQuery}
+      />
+      {songs && (
+        <List>
+          {songs.map((song) => {
+            return (
+              <ListItem key={song.id}>
+                <img src={song.image.url} />
+                <div className="info">
+                  <p className="song-name">{song.name}</p>
+                  <p className="artists-name">
+                    {song.artists.map((artist, index) => {
+                      return index === 0 ? artist.name : ", " + artist.name;
+                    })}
+                  </p>
+                  <p
+                    onClick={() => {
+                      props.setAttachId({
+                        playlist_id: null,
+                        song_id: song.id,
+                      });
+                      props.setAttachedItem(song);
+                      props.setSongVisible(false);
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faPaperclip} />
+                  </p>
+                </div>
+              </ListItem>
+            );
+          })}
+        </List>
+      )}
+    </div>
+  );
+}
+
+export { AttachSong, AttachSongButton };
