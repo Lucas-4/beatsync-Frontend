@@ -73,32 +73,38 @@
   display: flex;
   align-items: center;
   background-color: rgb(190, 190, 190);
+  border: 2px solid rgb(190, 190, 190);
   border-radius: 10px;
   padding: 5px 10px 5px 10px;
   cursor: pointer;
 }
 .follow-button:hover {
   background-color: rgb(151, 151, 151);
+  border-color: rgb(151, 151, 151);
 }
 .follow-button p {
   margin: 0;
   padding: 0;
   margin-left: 10px;
+  user-select: none;
 }
 
-.following-button {
+.unfollow-button {
+  box-sizing: border-box;
+  color: rgb(190, 190, 190);
   display: flex;
   align-items: center;
-  background-color: rgb(190, 190, 190);
+  border: 2px solid rgb(190, 190, 190);
   border-radius: 10px;
   padding: 5px 10px 5px 10px;
   cursor: pointer;
 }
 
-.following-button p {
+.unfollow-button p {
   margin: 0;
   padding: 0;
   margin-left: 10px;
+  user-select: none;
 }
 
 .bar {
@@ -127,7 +133,7 @@
   outline: none;
 }
 
-.followage {
+.follow-info {
   display: flex;
   align-items: center;
 }

@@ -9,13 +9,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGear,
   faUserPlus,
-  faUserCheck,
+  faUserMinus,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Profile(props) {
   const params = useParams();
-  const [user, setUser] = useState();
-  const [displayUnfollow, setDisplayUnfollow] = useState(false);
+  const [user, setUser] = useState(null);
+  const [following, setFollowing] = useState();
 
   useEffect(() => {
     fetch(process.env.REACT_APP_API_HOST + "/users/" + params.username, {
@@ -30,6 +30,7 @@ function Profile(props) {
       })
       .then((data) => {
         setUser(data.user);
+        setFollowing(!!data.user.is_being_followed);
         console.log(data);
       });
   }, [params]);
@@ -78,37 +79,30 @@ function Profile(props) {
 
             <p className="bio">{user.bio}</p>
 
-            <div className="followage">
+            <div className="follow-info">
               <p className="following">
                 <span>0</span> following
               </p>
               <p className="followers">
                 <span>0</span> followers
               </p>
-              {user.is_my_profile ? null : user.is_being_followed ? (
+              {user.is_my_profile ? null : following ? (
                 <div
-                  className="following-button"
-                  onMouseEnter={() => {
-                    setDisplayUnfollow(true);
-                  }}
-                  onMouseLeave={() => {
-                    setDisplayUnfollow(false);
+                  className="unfollow-button"
+                  onClick={() => {
+                    setFollowing(!following);
                   }}
                 >
-                  {displayUnfollow ? (
-                    <>
-                      <FontAwesomeIcon icon={faUserCheck} />
-                      <p>Unfollow</p>
-                    </>
-                  ) : (
-                    <>
-                      <FontAwesomeIcon icon={faUserCheck} />
-                      <p>Following</p>
-                    </>
-                  )}
+                  <FontAwesomeIcon icon={faUserMinus} />
+                  <p>Unfollow</p>
                 </div>
               ) : (
-                <div className="follow-button" onClick={follow}>
+                <div
+                  className="follow-button"
+                  onClick={() => {
+                    setFollowing(!following);
+                  }}
+                >
                   <FontAwesomeIcon icon={faUserPlus} />
                   <p>Follow</p>
                 </div>
