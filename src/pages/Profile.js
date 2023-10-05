@@ -44,10 +44,32 @@ function Profile(props) {
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => {
-        return res.json();
+        if (!res.ok) {
+          throw new Error("follow error");
+        }
+        setFollowing(true);
       })
-      .then((data) => {
-        console.log(data);
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
+  function unfollow() {
+    const body = { following_id: user.user_id };
+    fetch(process.env.REACT_APP_API_HOST + "/users/me/following", {
+      method: "DELETE",
+      credentials: "include",
+      body: JSON.stringify(body),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("unfollow error");
+        }
+        setFollowing(false);
+      })
+      .catch((e) => {
+        console.log(e);
       });
   }
 
@@ -87,22 +109,12 @@ function Profile(props) {
                 <span>0</span> followers
               </p>
               {user.is_my_profile ? null : following ? (
-                <div
-                  className="unfollow-button"
-                  onClick={() => {
-                    setFollowing(!following);
-                  }}
-                >
+                <div className="unfollow-button" onClick={unfollow}>
                   <FontAwesomeIcon icon={faUserMinus} />
                   <p>Unfollow</p>
                 </div>
               ) : (
-                <div
-                  className="follow-button"
-                  onClick={() => {
-                    setFollowing(!following);
-                  }}
-                >
+                <div className="follow-button" onClick={follow}>
                   <FontAwesomeIcon icon={faUserPlus} />
                   <p>Follow</p>
                 </div>
