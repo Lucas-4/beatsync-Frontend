@@ -3,7 +3,7 @@ import Main from "../components/Main";
 import Header from "../components/Header";
 
 function login() {
-  fetch("https://localhost:8080/users/spotify_authorize", {
+  fetch(process.env.REACT_APP_API_HOST + "/users/spotify_authorize", {
     method: "GET",
     credentials: "include",
     headers: { "Content-type": "application/json" },
