@@ -6,7 +6,7 @@ function getToken() {
   const code = url.searchParams.get("code");
   const state = url.searchParams.get("state");
 
-  const api_url = new URL("https://localhost:8080/users/get_token/");
+  const api_url = new URL(process.env.REACT_APP_API_HOST + "/users/get_token/");
   api_url.searchParams.append("code", code);
   api_url.searchParams.append("state", state);
   const api_url_string = api_url.toString();
