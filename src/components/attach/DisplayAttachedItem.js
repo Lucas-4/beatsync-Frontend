@@ -8,13 +8,26 @@ function DisplayAttachedItem(props) {
     <div className="attached-item">
       <img src={props.image.url} />
       <div className="info">
-        <p className="song-name">{props.name}</p>
-        <p className="artists-name">
-          {props.artists === undefined
-            ? null
-            : props.artists.map((artist, index) => {
-                return index === 0 ? artist.name : ", " + artist.name;
-              })}
+        <a className="song-name" href={props.href} target="_blank">
+          {props.name}
+        </a>
+        <p className="artist-name">
+          <div>
+            {props.artists === undefined
+              ? null
+              : props.artists.map((artist, index) => {
+                  // return index === 0 ? artist.name : ", " + artist.name;
+                  return (
+                    <a
+                      className="artist-name"
+                      href={artist.href}
+                      target="_blank"
+                    >
+                      {index === 0 ? artist.name : ", " + artist.name}
+                    </a>
+                  );
+                })}
+          </div>
         </p>
         <p
           onClick={() => {
