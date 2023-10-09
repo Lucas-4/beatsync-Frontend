@@ -72,22 +72,6 @@ function AttachPlaylist(props) {
                     <FontAwesomeIcon icon={faPaperclip} />
                   </p>
                 </div>
-                {/* <img src={playlist.image.url} />
-                <p>{playlist.name}</p>
-                <p
-                  onClick={() => {
-                    props.setAttachId({
-                      playlist_id: playlist.id,
-                      song_id: null,
-                    });
-                    props.setAttachedItem(playlist);
-                  }}
-                >
-                  attach
-                </p>
-                <a href={playlist.href} rel="noreferrer" target="_blank">
-                  link
-                </a> */}
               </ListItem>
             );
           })}
