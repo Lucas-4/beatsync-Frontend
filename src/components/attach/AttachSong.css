@@ -10,7 +10,6 @@
 .list img {
   width: 80px;
   display: inline-block;
-  border-radius: 2px;
 }
 
 .list-item {
@@ -41,11 +40,22 @@
 
 .song-name {
   font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.song-name:hover {
+  text-decoration: underline;
 }
 .playlist-name {
   font-weight: bold;
 }
 
-.artists-name {
+.artist-name {
   font-size: 13px;
+  color: white;
+  text-decoration: none;
+}
+.artist-name:hover {
+  text-decoration: underline;
 }

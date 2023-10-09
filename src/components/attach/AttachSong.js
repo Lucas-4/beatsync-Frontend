@@ -53,12 +53,23 @@ function AttachSong(props) {
               <ListItem key={song.id}>
                 <img src={song.image.url} />
                 <div className="info">
-                  <p className="song-name">{song.name}</p>
-                  <p className="artists-name">
+                  <a className="song-name" href={song.href} target="_blank">
+                    {song.name}
+                  </a>
+                  <div>
                     {song.artists.map((artist, index) => {
-                      return index === 0 ? artist.name : ", " + artist.name;
+                      // return index === 0 ? artist.name : ", " + artist.name;
+                      return (
+                        <a
+                          className="artist-name"
+                          href={artist.href}
+                          target="_blank"
+                        >
+                          {index === 0 ? artist.name : ", " + artist.name}
+                        </a>
+                      );
                     })}
-                  </p>
+                  </div>
                   <p
                     onClick={() => {
                       props.setAttachId({
