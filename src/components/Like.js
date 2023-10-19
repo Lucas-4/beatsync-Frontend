@@ -19,7 +19,11 @@ function Like(props) {
               "/comments/" +
               props.comment_id +
               "/like",
-            { method: "DELETE", credentials: "include" }
+            {
+              method: "DELETE",
+              credentials: "include",
+              headers: { "ngrok-skip-browser-warning": "any" },
+            }
           );
 
           const data = await res.json();
@@ -38,7 +42,11 @@ function Like(props) {
               "/comments/" +
               props.comment_id +
               "/like",
-            { method: "POST", credentials: "include" }
+            {
+              method: "POST",
+              credentials: "include",
+              headers: { "ngrok-skip-browser-warning": "any" },
+            }
           );
 
           const data = await res.json();
@@ -58,7 +66,11 @@ function Like(props) {
         console.log("like click");
         const res = await fetch(
           process.env.REACT_APP_API_HOST + "/posts/" + props.post_id + "/like",
-          { method: "DELETE", credentials: "include" }
+          {
+            method: "DELETE",
+            credentials: "include",
+            headers: { "ngrok-skip-browser-warning": "any" },
+          }
         );
 
         const data = await res.json();
@@ -76,7 +88,11 @@ function Like(props) {
         console.log("like click");
         const res = await fetch(
           process.env.REACT_APP_API_HOST + "/posts/" + props.post_id + "/like",
-          { method: "POST", credentials: "include" }
+          {
+            method: "POST",
+            credentials: "include",
+            headers: { "ngrok-skip-browser-warning": "any" },
+          }
         );
 
         const data = await res.json();

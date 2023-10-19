@@ -11,7 +11,11 @@ function getToken() {
   api_url.searchParams.append("state", state);
   const api_url_string = api_url.toString();
 
-  fetch(api_url_string, { method: "GET", credentials: "include" })
+  fetch(api_url_string, {
+    method: "GET",
+    credentials: "include",
+    headers: { "ngrok-skip-browser-warning": "any" },
+  })
     .then((res) => {
       if (!res.ok) {
         throw new Error("fetch error");

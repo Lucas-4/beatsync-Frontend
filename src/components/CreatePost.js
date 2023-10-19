@@ -50,6 +50,7 @@ function CreatePost() {
       method: "POST",
       body: formData,
       credentials: "include",
+      headers: { "ngrok-skip-browser-warning": "any" },
     })
       .then((res) => {
         if (!res.ok) {

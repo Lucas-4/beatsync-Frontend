@@ -17,6 +17,7 @@ function ViewReplies(props) {
         {
           method: "GET",
           credentials: "include",
+          headers: { "ngrok-skip-browser-warning": "any" },
         }
       );
 

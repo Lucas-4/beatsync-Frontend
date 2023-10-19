@@ -14,6 +14,7 @@ function Home() {
     fetch(process.env.REACT_APP_API_HOST + "/posts", {
       method: "GET",
       credentials: "include",
+      headers: { "ngrok-skip-browser-warning": "any" },
     })
       .then((res) => {
         if (res.status === 401) {

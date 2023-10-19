@@ -6,7 +6,10 @@ function login() {
   fetch(process.env.REACT_APP_API_HOST + "/users/spotify_authorize", {
     method: "GET",
     credentials: "include",
-    headers: { "Content-type": "application/json" },
+    headers: {
+      "Content-type": "application/json",
+      "ngrok-skip-browser-warning": "any",
+    },
   })
     .then((res) => {
       if (!res.ok) {

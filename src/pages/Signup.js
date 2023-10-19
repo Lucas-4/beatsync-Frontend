@@ -38,6 +38,7 @@ function Signup() {
       method: "POST",
       body: formData,
       credentials: "include",
+      headers: { "ngrok-skip-browser-warning": "any" },
     })
       .then((res) => {
         return res.json();

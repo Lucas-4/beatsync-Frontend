@@ -17,7 +17,11 @@ function ViewPost() {
     async function getPost() {
       const res = await fetch(
         process.env.REACT_APP_API_HOST + "/posts/" + post_id,
-        { method: "GET", credentials: "include" }
+        {
+          method: "GET",
+          credentials: "include",
+          headers: { "ngrok-skip-browser-warning": "any" },
+        }
       );
 
       const data = await res.json();
@@ -29,7 +33,11 @@ function ViewPost() {
     async function getComments() {
       const res = await fetch(
         process.env.REACT_APP_API_HOST + "/posts/" + post_id + "/comments",
-        { method: "GET", credentials: "include" }
+        {
+          method: "GET",
+          credentials: "include",
+          headers: { "ngrok-skip-browser-warning": "any" },
+        }
       );
 
       const data = await res.json();

@@ -12,6 +12,7 @@ function UserPosts() {
       {
         method: "GET",
         credentials: "include",
+        headers: { "ngrok-skip-browser-warning": "any" },
       }
     )
       .then((res) => {

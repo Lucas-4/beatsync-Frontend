@@ -21,6 +21,7 @@ function Profile(props) {
     fetch(process.env.REACT_APP_API_HOST + "/users/" + params.username, {
       method: "GET",
       credentials: "include",
+      headers: { "ngrok-skip-browser-warning": "any" },
     })
       .then((res) => {
         if (!res.ok) {
@@ -41,7 +42,10 @@ function Profile(props) {
       method: "POST",
       credentials: "include",
       body: JSON.stringify(body),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": "any",
+      },
     })
       .then((res) => {
         if (!res.ok) {
@@ -60,7 +64,10 @@ function Profile(props) {
       method: "DELETE",
       credentials: "include",
       body: JSON.stringify(body),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": "any",
+      },
     })
       .then((res) => {
         if (!res.ok) {

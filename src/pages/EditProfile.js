@@ -29,6 +29,7 @@ function EditProfile() {
       method: "PUT",
       credentials: "include",
       body: formData,
+      headers: { "ngrok-skip-browser-warning": "any" },
     })
       .then((res) => {
         return res.json();
@@ -50,6 +51,7 @@ function EditProfile() {
     fetch(process.env.REACT_APP_API_HOST + "/users/me", {
       method: "GET",
       credentials: "include",
+      headers: { "ngrok-skip-browser-warning": "any" },
     })
       .then((res) => {
         if (!res.ok) {

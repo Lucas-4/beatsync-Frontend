@@ -27,6 +27,7 @@ function AttachSong(props) {
         {
           method: "GET",
           credentials: "include",
+          headers: { "ngrok-skip-browser-warning": "any" },
         }
       );
       console.log(res);
