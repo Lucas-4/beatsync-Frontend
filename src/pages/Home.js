@@ -4,15 +4,22 @@ import Post from "../components/Post";
 import { useEffect, useState } from "react";
 import Main from "../components/Main";
 import Header from "../components/Header";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [posts, setPosts] = useState();
+  const navigate = useNavigate();
+
   useEffect(() => {
     fetch(process.env.REACT_APP_API_HOST + "/posts", {
       method: "GET",
       credentials: "include",
     })
       .then((res) => {
+        if (res.status === 401) {
+          navigate("/welcome");
+          throw new Error("Unauthorized");
+        }
         if (!res.ok) {
           console.log(res);
           throw new Error("fetch error");
@@ -20,11 +27,10 @@ function Home() {
         return res.json();
       })
       .then((data) => {
-        console.log(data.posts);
         setPosts(data.posts);
       })
-      .catch((e) => {
-        console.log(e);
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
 

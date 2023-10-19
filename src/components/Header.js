@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import "./header.css";
 import SearchBar from "./SearchBar";
 import ProfileCard from "./ProfileCard";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 function Header() {
   const [user, setUser] = useState();
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
   useEffect(() => {
     {
       fetch(process.env.REACT_APP_API_HOST + "/users/me", {
@@ -13,6 +14,10 @@ function Header() {
         credentials: "include",
       })
         .then((res) => {
+          if (res.status === 401) {
+            navigate("/welcome");
+            throw new Error("Unauthorized");
+          }
           if (!res.ok) {
             throw new Error("fetch error");
           }
@@ -20,7 +25,9 @@ function Header() {
         })
         .then((data) => {
           setUser(data.user);
-          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
         });
     }
   }, []);
