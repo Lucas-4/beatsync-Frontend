@@ -1,0 +1,18 @@
+.comment {
+  border-left: 1px solid rgb(255, 255, 255);
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  width: auto;
+  box-sizing: border-box;
+  background-color: black;
+  margin-top: 10px;
+}
+
+.reply-box {
+  margin-left: auto;
+  box-sizing: border-box;
+  padding: 0;
+  width: 98%;
+  /* margin-bottom: 10px; */
+  margin-top: 10px;
+}

@@ -1,0 +1,18 @@
+.button {
+  color: white;
+  border-style: none;
+  font-size: 18px;
+  box-sizing: border-box;
+  padding: 8px 15px 8px 15px;
+  border-radius: 10px;
+}
+
+.enabled {
+  background-color: rgb(14, 80, 180);
+  cursor: pointer;
+}
+
+.disabled {
+  background-color: rgb(102, 155, 235);
+  cursor: default;
+}

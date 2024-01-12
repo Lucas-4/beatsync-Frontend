@@ -1,0 +1,24 @@
+.user-list{
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+.user-list .profile-card{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding:5px;
+    border-radius: 10px;
+}
+.user-list .profile-card:hover{
+   background-color: rgb(41, 41, 41);
+   cursor:pointer;
+}
+
+.user-list p{
+    color:white;
+}
+.user-list h2{
+    color: white;
+    margin:0;
+    margin-bottom:20px;
+}

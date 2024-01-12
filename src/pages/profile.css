@@ -1,0 +1,147 @@
+.profile .profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 90px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.profile .profile-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: block;
+}
+
+.username {
+  color: rgb(180, 180, 180);
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.display_name {
+  color: white;
+  font-size: 27px;
+  margin: 0;
+  font-weight: bold;
+}
+.profile {
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.profile a{
+  text-decoration: none;
+}
+
+.profile a:hover{
+  text-decoration: underline;
+}
+.user-info-img-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.user-info {
+  margin-left: 10px;
+}
+
+.gear-icon {
+  position: absolute;
+  right: 0px;
+  margin-right: 10px;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+
+.followers,
+.following,
+.bio {
+  color: rgb(180, 180, 180);
+}
+.following span,
+.followers span {
+  color: white;
+  font-weight: bold;
+}
+.following,
+.followers {
+  margin-right: 15px;
+}
+
+.follow-button {
+  color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  background-color: rgb(190, 190, 190);
+  border: 2px solid rgb(190, 190, 190);
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+}
+.follow-button:hover {
+  background-color: rgb(151, 151, 151);
+  border-color: rgb(151, 151, 151);
+}
+.follow-button p {
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+  user-select: none;
+}
+
+.unfollow-button {
+  box-sizing: border-box;
+  color: rgb(190, 190, 190);
+  display: flex;
+  align-items: center;
+  border: 2px solid rgb(190, 190, 190);
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+}
+
+.unfollow-button p {
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+  user-select: none;
+}
+
+.bar {
+  background-color: black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+.bar a {
+  font-size: 17px;
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+  padding: 5px 10px 5px 10px;
+  border-radius: 10px;
+  font-weight: 400;
+}
+
+.bar a:hover {
+  background-color: rgb(187, 187, 187);
+  color: black;
+}
+
+.bar a.active {
+  background-color: rgb(110, 110, 110);
+  outline: none;
+}
+
+.follow-info {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,35 @@
+.actions .icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.like,
+.reply {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.like p,
+.reply p {
+  margin: 0;
+  margin-left: 20px;
+  font-size: 15px;
+  color: rgb(253, 253, 253);
+}
+
+.like .icon {
+  color: rgb(201, 29, 29);
+}
+
+.reply .icon {
+  color: rgb(38, 105, 207);
+}
+
+.view-replies .icon {
+  color: rgb(0, 153, 38);
+}
+
+.delete .icon{
+  color: rgb(241, 41, 41);
+}
