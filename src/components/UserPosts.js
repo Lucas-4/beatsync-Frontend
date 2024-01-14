@@ -38,6 +38,7 @@ function UserPosts() {
                         return (
                             <Post
                                 key={post.post_id}
+                                display_name={post.display_name}
                                 username={post.username}
                                 content={post.content}
                                 likes={post.likes_num}

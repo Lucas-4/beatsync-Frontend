@@ -39,6 +39,7 @@ function UserLikedPosts() {
                             <Post
                                 key={post.post_id}
                                 username={post.username}
+                                display_name={post.display_name}
                                 content={post.content}
                                 likes={post.likes_num}
                                 is_liked={post.is_liked}
