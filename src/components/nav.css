@@ -1,71 +1,71 @@
 .navigation {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgb(0, 0, 0);
-  height: fit-content;
-  position: fixed;
-  left: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
-  padding: 10px;
-  z-index: 2;
-  min-width: 255;
-  height: calc(100% - 110px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    height: fit-content;
+    position: fixed;
+    left: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 2;
+    min-width: 255;
+    height: calc(100% - 110px);
 }
 
 .navigation a {
-  color: rgb(24, 24, 24);
-  text-decoration: none;
-  font-size: 25px;
-  font-weight: 500;
-  color: rgb(255, 255, 255);
-  padding: 10px;
-  border-radius: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  cursor: pointer;
+    color: rgb(24, 24, 24);
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 
 .navigation a:hover {
-  background-color: rgb(31, 31, 31);
+    background-color: rgb(31, 31, 31);
 }
 
 .nav-icon {
-  margin-right: 20px;
-  width: 28px;
+    margin-right: 20px;
+    width: 28px;
 }
-.navigation .search-icon{
-  display: none;
+.navigation .search-icon {
+    display: none;
 }
 
 @media screen and (max-width: 1360px) {
-  .navigation span {
-    display: none;
-  }
+    .navigation span {
+        display: none;
+    }
 
-  .nav-icon {
-    margin-right: 0px;
-  }
+    .nav-icon {
+        margin-right: 0px;
+    }
 }
 
 @media screen and (max-width: 1025px) {
-  .navigation {
-    flex-direction: row;
-    height: auto;
-    width: 100%;
-    left:0;
-    bottom:0;
-    justify-content: space-around;
-border-top: 1px solid white;
-border-radius: 0;
-    
-  }
-  .navigation a{
-    width: auto;
-  }
-  .navigation .search-icon{
-    display: block;
-  }
+    .navigation {
+        flex-direction: row;
+        height: auto;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        justify-content: space-around;
+        border-top: 1px solid white;
+        border-radius: 0;
+        padding: 0;
+    }
+    .navigation a {
+        width: auto;
+    }
+    .navigation .search-icon {
+        display: block;
+    }
 }
