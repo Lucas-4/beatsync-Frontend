@@ -2,7 +2,7 @@ import CreatePost from "../components/CreatePost";
 import Post from "../components/Post";
 import { useEffect, useState } from "react";
 import Main from "../components/Main";
-
+import "./home.css";
 function Home() {
     const [posts, setPosts] = useState([]);
     const [lastPostId, setLastPostId] = useState();
@@ -59,7 +59,11 @@ function Home() {
                           />
                       );
                   })}
-            <button onClick={loadPosts}>Load more posts...</button>
+            <div className="load-posts-wrapper">
+                <div className="load-posts" onClick={loadPosts}>
+                    Load more posts
+                </div>
+            </div>
         </Main>
     );
 }
