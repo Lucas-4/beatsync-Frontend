@@ -10,13 +10,11 @@ import DisplayNotification from "./DisplayNotification";
 
 function Post(props) {
     const [commentVisible, setCommentVisibility] = useState(false);
-    const navigate = useNavigate();
     const [notification, setNotification] = useState(null);
+    const navigate = useNavigate();
 
-    function viewPost(event) {
+    function viewPost() {
         navigate("/post/" + props.post_id);
-        // if (event.target === event.currentTarget) {
-        // }
     }
     function deletePost(event) {
         event.stopPropagation();
@@ -55,7 +53,7 @@ function Post(props) {
                 </div>
             )}
 
-            {props.song_id !== null ? (
+            {props.song_id === null || props.song_id === undefined ? null : (
                 <iframe
                     title="deezer-widget"
                     src={
@@ -68,9 +66,10 @@ function Post(props) {
                     allowtransparency="true"
                     allow="encrypted-media; clipboard-write"
                 ></iframe>
-            ) : null}
+            )}
 
-            {props.playlist_id !== null ? (
+            {props.playlist_id === null ||
+            props.playlist_id === undefined ? null : (
                 <iframe
                     title="deezer-widget"
                     src={
@@ -83,7 +82,7 @@ function Post(props) {
                     allowtransparency="true"
                     allow="encrypted-media; clipboard-write"
                 ></iframe>
-            ) : null}
+            )}
             <div className="actions">
                 <Like
                     post_id={props.post_id}

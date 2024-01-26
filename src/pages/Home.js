@@ -6,7 +6,10 @@ import "./home.css";
 function Home() {
     const [posts, setPosts] = useState([]);
     const [lastPostId, setLastPostId] = useState();
+    const [isLoading, setLoading] = useState(true);
+
     const loadPosts = () => {
+        setLoading(true);
         fetch(
             process.env.REACT_APP_API_HOST + "/posts?lastPostId=" + lastPostId,
             {
@@ -24,6 +27,7 @@ function Home() {
             .then((data) => {
                 setPosts(posts.concat(data.posts));
                 setLastPostId(data.lastPostId);
+                setLoading(false);
             })
             .catch((error) => {
                 console.log(error);
@@ -36,33 +40,33 @@ function Home() {
     return (
         <Main>
             <CreatePost />
-            {posts.length === 0
-                ? null
-                : posts.map((post) => {
-                      return (
-                          <Post
-                              key={post.post_id}
-                              username={post.username}
-                              display_name={post.display_name}
-                              content={post.content}
-                              likes={post.likes_num}
-                              is_liked={post.is_liked}
-                              post_id={post.post_id}
-                              comments_num={post.comments_num}
-                              song_id={post.song_id}
-                              playlist_id={post.playlist_id}
-                              profile_image_path={post.profile_image_path}
-                              post_image_path={post.post_image_path}
-                              belongs_to_current_user={
-                                  post.belongs_to_current_user
-                              }
-                          />
-                      );
-                  })}
+            {posts.map((post) => {
+                return (
+                    <Post
+                        key={post.post_id}
+                        username={post.username}
+                        display_name={post.display_name}
+                        content={post.content}
+                        likes={post.likes_num}
+                        is_liked={post.is_liked}
+                        post_id={post.post_id}
+                        comments_num={post.comments_num}
+                        song_id={post.song_id}
+                        playlist_id={post.playlist_id}
+                        profile_image_path={post.profile_image_path}
+                        post_image_path={post.post_image_path}
+                        belongs_to_current_user={post.belongs_to_current_user}
+                    />
+                );
+            })}
             <div className="load-posts-wrapper">
-                <div className="load-posts" onClick={loadPosts}>
-                    Load more posts
-                </div>
+                {isLoading ? (
+                    <div className="loading-posts">Loading posts...</div>
+                ) : (
+                    <button className="load-posts" onClick={loadPosts}>
+                        Load more posts
+                    </button>
+                )}
             </div>
         </Main>
     );
